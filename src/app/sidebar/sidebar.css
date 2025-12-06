@@ -1,0 +1,49 @@
+.sidebar {
+  width: 10vw;
+  height: 100vh;
+  background: #111;
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebarInner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  background: #111;
+  margin: 10px;
+}
+
+mat-icon {
+  color: #fff;
+}
+
+.chooseItem {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+
+button{
+  border: none;
+  background: #111;
+}
+
+button:hover{
+  scale: 1.1;
+}
+
+button:active{
+  scale: 0.98;
+}

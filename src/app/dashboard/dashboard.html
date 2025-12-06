@@ -1,0 +1,56 @@
+<div class="container">
+  <h1>Dashboard</h1>
+  <p>Welcome to Expense Tracker</p>
+  <div class="grid-two">
+    <div class="column">
+      <div class="grid-two">
+        <div class="card">
+          <h2>Income</h2>
+          <h1>+5.000€</h1>
+        </div>
+        <div class="card">
+          <h2>Expenses</h2>
+          <h1>-1.000€</h1>
+        </div>
+      </div>
+      <div class="card">
+        <div class="grid-two">
+          <div class="card">
+            <canvas baseChart
+                    [data]="barChartData"
+                    [type]="'bar'">
+            </canvas>
+          </div>
+          <div class="card">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [type]="'pie'">
+            </canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="column">
+      <div class="card">
+        <h2>Last Transactions</h2>
+        <div class="list" *ngFor="let transaction of lastTransactions">
+          <div class="list-item">
+            <div class="grid-two">
+              <div class="column">
+                <h3>{{transaction.subject}}</h3>
+                <p>{{transaction.category}}</p>
+              </div>
+              <div id="prise-container">
+                <p>{{transaction.prise}}</p>
+              </div>
+
+            </div>
+
+          </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+</div>
