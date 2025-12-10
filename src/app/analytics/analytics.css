@@ -13,12 +13,7 @@ column{
 
 .grid-two{
   display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-.grid-three{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .card {
@@ -27,34 +22,14 @@ column{
   background: #111;
   display: flex;
   justify-items: center;
+  align-items: center;
   flex-direction: column;
   border-radius: 15px;
   transition: all 0.2s ease-in-out;
+  max-height: 30vh;
 }
 
 .card:hover{
   scale: 1.02;
   border: 1px solid #222;
 }
-
-.list-item {
-  margin: 10px;
-  background: #222;
-  padding: 10px;
-  border-radius: 15px;
-}
-
-#prise-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.transactionPrise {
-  color: #EF4444;
-}
-
-.transactionPrise.income {
-  color: #22C55E;
-}
-

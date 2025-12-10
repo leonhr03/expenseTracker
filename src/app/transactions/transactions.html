@@ -1,1 +1,39 @@
-<p>transactions works!</p>
+<div class="container">
+  <h1>Transactions</h1>
+    <div class="card">
+      <div class="list">
+        <div class="list-item" *ngFor="let transaction of transactions">
+          <div class="grid-two">
+            <div class="column">
+              <h3>{{transaction.subject}}</h3>
+              <p>{{transaction.category}}</p>
+            </div>
+            <div id="prise-container">
+              <p [class.income]="transaction.income" class="transactionPrise">{{ transaction.income ? "+" : "-"}}{{transaction.prise}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <button class="round-button add" (click)="showAddAlert = true">+</button>
+
+  <div class="overlay" *ngIf="showAddAlert">
+    <div class="card addTransaction">
+      <h1 id="alertHeading">Add Transaction</h1>
+        <input type="text" placeholder="Subject" [(ngModel)]="subject">
+        <select [(ngModel)]="category" >
+          <option value="" selected>Choose a categorie</option>
+          <option value="food">Food</option>
+          <option value="transport">Transport</option>
+          <option value="fun">Fun</option>
+          <option value="income">Income</option>
+          <option value="other">Other</option>
+        </select>
+      <input type="number" placeholder="Prise" [(ngModel)]="prise">
+      <mat-checkbox [(ngModel)]="income">Income</mat-checkbox>
+      <button class="add-button" (click)="addTransaction()">Add</button>
+    </div>
+    <button class="round-button close" (click)="showAddAlert = false">x</button>
+  </div>
+</div>

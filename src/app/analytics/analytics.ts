@@ -1,33 +1,31 @@
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
-import { BaseChartDirective, NgChartsModule } from 'ng2-charts';
-import { NgForOf } from '@angular/common';
+import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
+import {BaseChartDirective, NgChartsModule} from 'ng2-charts';
 import supabase from '../supabase';
-import { ChartOptions } from 'chart.js';
+import {ChartOptions} from 'chart.js';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-analytics',
   imports: [
-    NgChartsModule,
-    NgForOf
+    NgChartsModule
   ],
-  templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css'],
+  templateUrl: './analytics.html',
+  styleUrl: './analytics.css',
 })
-export class Dashboard {
+export class Analytics {
   constructor(private cdr: ChangeDetectorRef) {}
-
   @ViewChild('barChart') barChart: BaseChartDirective | undefined;
   @ViewChild('pieChart') pieChart: BaseChartDirective | undefined;
+  @ViewChild("lineChart") lineChart: BaseChartDirective | undefined;
 
   transactions: any[] = [];
-  lastTransactions: any[] = [];
 
   income: number = 0;
   expense: number = 0;
   total: number = 0;
 
-  barChartData = {
+  categoryBarChartData = {
     labels: ['Food', 'Transport', 'Fun', 'Income', 'Other'],
+    title: "categories",
     datasets: [
       {
         label: "Categories",
@@ -35,17 +33,41 @@ export class Dashboard {
         backgroundColor: ['#3B82F6', '#3B82F6', '#3B82F6', '#3B82F6', '#3B82F6']
       }
     ]
-  };
+  }
 
-  pieChartData = {
-    labels: ['Income', 'Expese'],
+  categoryPieChartData = {
+    labels: ['Food', 'Transport', 'Fun', 'Income', 'Other'],
+    title: "categories",
     datasets: [
       {
+        label: "Categories",
+        data: [0, 0, 0, 0, 0],
+        backgroundColor: ['#3B82F6', '#3B82F6', '#3B82F6', '#3B82F6', '#3B82F6']
+      }
+    ]
+  }
+
+  IEBarChartData = {
+    labels: ['Income', 'Expense'],
+    datasets: [
+      {
+        label: "Income/Expense",
         data: [0, 0],
         backgroundColor: ['#3B82F6', '#60A5FA']
       }
     ]
-  };
+  }
+
+  IEPieChartData = {
+    labels: ['Income', 'Expense'],
+    datasets: [
+      {
+        label: "Income/Expense",
+        data: [0, 0],
+        backgroundColor: ['#3B82F6', '#60A5FA']
+      }
+    ]
+  }
 
   barChartOptions: ChartOptions<'bar'> = {
     responsive: true,
@@ -55,12 +77,6 @@ export class Dashboard {
         position: 'bottom',
         labels: { color: '#fff', font: { size: 14 }, usePointStyle: true }
 
-      },
-      title: {
-        display: true,
-        text: 'Categories',
-        color: '#fff',
-        font: { size: 18 }
       },
       tooltip: {
         enabled: true,
@@ -78,12 +94,6 @@ export class Dashboard {
         display: true,
         position: 'bottom',
         labels: { color: '#fff', font: { size: 14 }, usePointStyle: true }
-      },
-      title: {
-        display: true,
-        text: 'Income and Expense',
-        color: '#fff',
-        font: { size: 18 }
       },
       tooltip: {
         enabled: true,
@@ -132,8 +142,11 @@ export class Dashboard {
     this.total = incomeSum - expenseSum;
 
     // Charts aktualisieren
-    this.barChartData.datasets[0].data = [food, transport, fun, incomeSum, other];
-    this.pieChartData.datasets[0].data = [incomeSum, expenseSum];
+    this.categoryBarChartData.datasets[0].data = [food, transport, fun, incomeSum, other];
+    this.categoryPieChartData.datasets[0].data = [food, transport, fun, incomeSum, other];
+    this.IEBarChartData.datasets[0].data = [incomeSum, expenseSum];
+    this.IEPieChartData.datasets[0].data = [incomeSum, expenseSum];
+
 
     // Angular und Chart.js update erzwingen
     this.cdr.detectChanges();
@@ -152,6 +165,5 @@ export class Dashboard {
 
     this.transactions = data.transactions || [];
     this.calcChartData();
-    this.lastTransactions = this.transactions.slice(0, 2);
   }
 }

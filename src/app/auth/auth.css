@@ -1,0 +1,68 @@
+.container {
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,h2, h3, p {
+  color: #fff;
+}
+
+.card {
+  padding: 20px;
+  margin: 10px;
+  background: #111;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover{
+  scale: 1.02;
+  border: 1px solid #222;
+}
+
+input{
+  width: 40vw;
+  border-radius: 15px;
+  border: 1px solid #333;
+  padding: 16px;
+  color: #fff;
+  background: #222;
+  margin: 5px;
+}
+
+.auth-button{
+  border: none;
+  background: #4a90e2;
+  padding: 16px;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  width: 30vw;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.auth-button:hover{
+  scale: 1.01;
+}
+
+.auth-button:active{
+  scale: 0.99;
+}
+
+.changeText{
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

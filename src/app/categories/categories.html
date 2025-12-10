@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Categories</h1>
+    <div class="card">
+      <h2>Transactions</h2>
+      <h2>
+        Kategorie Preis:
+        <span [class.income]="selectedCategoryIsIncome"
+              [class.expense]="!selectedCategoryIsIncome">
+
+              {{ selectedCategoryIsIncome ? '+' : '-' }}{{ selectedCategoryPrice }}
+        </span>
+      </h2>
+      <div class="row">
+        <button class="row-item" (click)="filterData('All')">All</button>
+        <button class="row-item" (click)="filterData('Income')">Income</button>
+        <button class="row-item" (click)="filterData('food')">Food</button>
+        <button class="row-item" (click)="filterData('transport')">Transport</button>
+        <button class="row-item" (click)="filterData('fun')">Fun</button>
+        <button class="row-item" (click)="filterData('other')">Other</button>
+      </div>
+      <div class="list">
+        <div class="list-item" *ngFor="let transaction of filteredTransactions">
+          <div class="grid-two">
+            <div class="column">
+              <h3>{{transaction.subject}}</h3>
+              <p>{{transaction.category}}</p>
+            </div>
+            <div id="prise-container">
+              <p [class.income]="transaction.income" class="transactionPrise">{{ transaction.income ? "+" : "-"}}{{transaction.prise}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

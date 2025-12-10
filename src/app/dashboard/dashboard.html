@@ -3,33 +3,38 @@
   <p>Welcome to Expense Tracker</p>
   <div class="grid-two">
     <div class="column">
-      <div class="grid-two">
+      <div class="grid-three">
         <div class="card">
           <h2>Income</h2>
-          <h1>+5.000€</h1>
+          <h1>{{income}}€</h1>
         </div>
         <div class="card">
           <h2>Expenses</h2>
-          <h1>-1.000€</h1>
+          <h1>-{{expense}}€</h1>
+        </div>
+        <div class="card">
+          <h2>Total</h2>
+          <h1>{{total}}€</h1>
         </div>
       </div>
       <div class="card">
         <div class="grid-two">
           <div class="card">
-            <canvas baseChart
+            <canvas baseChart #barChart
                     [data]="barChartData"
-                    [type]="'bar'">
+                    [type]="'bar'"
+                    [options]="barChartOptions">
             </canvas>
           </div>
           <div class="card">
-            <canvas baseChart
+            <canvas baseChart #pieChart
                     [data]="pieChartData"
-                    [type]="'pie'">
+                    [type]="'pie'"
+                    [options]="pieChartOptions">
             </canvas>
           </div>
         </div>
       </div>
-
     </div>
     <div class="column">
       <div class="card">
@@ -42,15 +47,13 @@
                 <p>{{transaction.category}}</p>
               </div>
               <div id="prise-container">
-                <p>{{transaction.prise}}</p>
+                <p [class.income]="transaction.income" class="transactionPrise">{{ transaction.income ? "+" : "-"}}{{transaction.prise}}</p>
               </div>
-
             </div>
-
           </div>
-          </div>
-
+        </div>
       </div>
-  </div>
+
+    </div>
 </div>
 </div>

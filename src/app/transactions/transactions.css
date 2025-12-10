@@ -1,0 +1,175 @@
+.container {
+  padding: 20px;
+}
+
+h1,h2, h3, p {
+  color: #fff;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.card {
+  padding: 20px;
+  margin: 10px;
+  background: #111;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover{
+  scale: 1.02;
+  border: 1px solid #222;
+}
+
+.list-item {
+  margin: 10px;
+  background: #222;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.list-item:hover{
+  border: 1px solid #222;
+  scale: 1.02;
+}
+
+.grid-two{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#prise-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transactionPrise {
+  color: #EF4444;
+}
+
+.transactionPrise.income {
+  color: #22C55E;
+}
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.addTransaction {
+ border: 1px solid #222;
+}
+
+input{
+  width: 40vw;
+  border-radius: 15px;
+  border: 1px solid #333;
+  padding: 16px;
+  color: #fff;
+  background: #222;
+  margin: 5px;
+}
+
+.add-button{
+  border: none;
+  background: #4a90e2;
+  padding: 16px;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  width: 30vw;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+
+
+.add-button:hover{
+  scale: 1.01;
+}
+
+.add-button:active{
+  scale: 0.99;
+}
+
+.round-button{
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  border: none;
+  background: #4a90e2;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.round-button:hover{
+  border: 1px solid #fff;
+}
+
+.round-button:active{
+  scale: 0.95;
+}
+
+.add{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+mat-checkbox {
+  margin: 10px;
+  color: #fff;
+  display: flex;
+  align-self: center;
+}
+
+select{
+  margin: 10px;
+  padding: 10px;
+  background: #222;
+  border-radius: 15px;
+  border: none;
+  appearance: none;
+  color: #fff;
+}
+
+option {
+  background: #111;
+  color: #fff;
+}
+
+#alertHeading{
+  color: #fff;
+  display: flex;
+  align-self: center;
+}

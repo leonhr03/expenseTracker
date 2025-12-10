@@ -1,0 +1,78 @@
+.container {
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+h1,h2, h3, p {
+  color: #fff;
+}
+
+.card {
+  padding: 20px;
+  margin: 10px;
+  margin-bottom: 20px;
+  background: #111;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.row-item{
+  min-width: 50px;
+  padding: 10px;
+  background: #222;
+  border-radius: 50vh;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.row-item:hover{
+  scale: 1.1;
+}
+
+.row-item:active{
+  scale: 0.98;
+}
+
+.list-item {
+  margin: 10px;
+  background: #222;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.list-item:hover{
+  border: 1px solid #222;
+  scale: 1.02;
+}
+
+.grid-two{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#prise-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transactionPrise {
+  color: #EF4444;
+}
+
+.transactionPrise.income {
+  color: #22C55E;
+}

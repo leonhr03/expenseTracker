@@ -6,7 +6,7 @@
 }
 
 .sidebar {
-  width: 10vw;
+  width: 15vw;
   height: 100vh;
   background: #111;
   position: fixed;
@@ -20,7 +20,7 @@
 }
 
 .content {
-  margin-left: 10vw;
+  margin-left: 15vw;
   flex-grow: 1;
   height: 100vh;
   overflow-y: auto;

@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Analytics</h1>
+  <div class="grid-two">
+    <div class="card">
+        <canvas baseChart #barChart
+                [data]="categoryBarChartData"
+                [type]="'bar'"
+                [options]="barChartOptions">
+        </canvas>
+
+    </div>
+    <div class="card">
+        <canvas baseChart #pieChart
+                [data]="categoryPieChartData"
+                [type]="'pie'"
+                [options]="pieChartOptions">
+        </canvas>
+
+    </div>
+  </div>
+  <div class="grid-two">
+    <div class="card">
+      <canvas baseChart
+              #pieChart
+              [data]="IEPieChartData"
+              [type]="'pie'"
+              [options]="pieChartOptions"
+      ></canvas>
+    </div>
+    <div class="card">
+      <canvas baseChart #barChart
+              [data]="IEBarChartData"
+              [type]="'bar'"
+              [options]="barChartOptions">
+
+      </canvas>
+    </div>
+  </div>
+</div>
