@@ -1,11 +1,12 @@
 import {ChangeDetectorRef, Component, } from '@angular/core';
 import supabase from '../supabase';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-categories',
   imports: [
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './categories.html',
   styleUrl: './categories.css',

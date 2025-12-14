@@ -39,6 +39,7 @@
     <div class="column">
       <div class="card">
         <h2>Last Transactions</h2>
+        <p *ngIf="!lastTransactions.length">Keine Transaction vorhanden</p>
         <div class="list" *ngFor="let transaction of lastTransactions">
           <div class="list-item">
             <div class="grid-two">

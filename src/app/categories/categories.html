@@ -19,6 +19,7 @@
         <button class="row-item" (click)="filterData('other')">Other</button>
       </div>
       <div class="list">
+        <p *ngIf="!filteredTransactions.length">Keine Transaction vorhanden</p>
         <div class="list-item" *ngFor="let transaction of filteredTransactions">
           <div class="grid-two">
             <div class="column">

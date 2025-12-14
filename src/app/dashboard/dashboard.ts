@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { BaseChartDirective, NgChartsModule } from 'ng2-charts';
-import { NgForOf } from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import supabase from '../supabase';
 import { ChartOptions } from 'chart.js';
 
@@ -8,7 +8,8 @@ import { ChartOptions } from 'chart.js';
   selector: 'app-dashboard',
   imports: [
     NgChartsModule,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
@@ -154,4 +155,6 @@ export class Dashboard {
     this.calcChartData();
     this.lastTransactions = this.transactions.slice(0, 2);
   }
+
+
 }

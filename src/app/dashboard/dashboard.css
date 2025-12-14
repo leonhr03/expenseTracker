@@ -21,6 +21,7 @@ column{
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+
 .card {
   padding: 20px;
   margin: 10px;

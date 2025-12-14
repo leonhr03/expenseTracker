@@ -3,7 +3,7 @@
     <div class="card">
       <div class="list">
         <div class="list-item" *ngFor="let transaction of transactions">
-          <div class="grid-two">
+          <div class="grid-three">
             <div class="column">
               <h3>{{transaction.subject}}</h3>
               <p>{{transaction.category}}</p>
@@ -11,7 +11,14 @@
             <div id="prise-container">
               <p [class.income]="transaction.income" class="transactionPrise">{{ transaction.income ? "+" : "-"}}{{transaction.prise}}</p>
             </div>
+            <button class="menu-button" (click)="toggleMenu(transaction.id)">⋮</button>
+            <div class="dropdown" *ngIf="activeMenuId === transaction.id">
+              <button (click)="deleteTransaction(transaction.id)">Delete</button>
+            </div>
           </div>
+        </div>
+        <div>
+          <p *ngIf="!transactions.length">Keine Transaction vorhanden</p>
         </div>
       </div>
     </div>
@@ -21,8 +28,8 @@
   <div class="overlay" *ngIf="showAddAlert">
     <div class="card addTransaction">
       <h1 id="alertHeading">Add Transaction</h1>
-        <input type="text" placeholder="Subject" [(ngModel)]="subject">
-        <select [(ngModel)]="category" >
+        <input type="text" placeholder="Subject" [(ngModel)]="subject" required>
+        <select [(ngModel)]="category" required>
           <option value="" selected>Choose a categorie</option>
           <option value="food">Food</option>
           <option value="transport">Transport</option>
@@ -30,7 +37,7 @@
           <option value="income">Income</option>
           <option value="other">Other</option>
         </select>
-      <input type="number" placeholder="Prise" [(ngModel)]="prise">
+      <input type="number" placeholder="Prise" [(ngModel)]="prise" required>
       <mat-checkbox [(ngModel)]="income">Income</mat-checkbox>
       <button class="add-button" (click)="addTransaction()">Add</button>
     </div>

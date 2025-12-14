@@ -19,6 +19,7 @@ import {ChangeDetectorRef} from '@angular/core';
 export class Transactions {
   constructor(private cdr: ChangeDetectorRef) {}
   showAddAlert = false;
+  activeMenuId: number | null = null;
   subject = '';
   category = '';
   prise = 0;
@@ -74,4 +75,21 @@ export class Transactions {
     this.cdr.detectChanges();
   }
 
+  async deleteTransaction(id: number) {
+    const { data: userData } = await supabase.auth.getUser();
+    const user = userData.user?.email;
+
+    const updatedList = this.transactions.filter(t => t.id !== id)
+    this.transactions = updatedList;
+    const { error } = await supabase.from("Transactions").upsert({user: user, transactions: updatedList});
+    if (error) {
+      alert(error.message);
+      return;
+    }
+    this.cdr.detectChanges();
+  }
+
+  toggleMenu(id: number) {
+    this.activeMenuId = this.activeMenuId === id ? null : id;
+  }
 }

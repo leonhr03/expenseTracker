@@ -35,15 +35,54 @@ mat-icon {
   background: #111;
 }
 
-button{
+.nav-button{
   border: none;
   background: #111;
 }
 
-button:hover{
+.nav-button:hover{
   scale: 1.1;
 }
 
-button:active{
+.nav-button:active{
   scale: 0.98;
+}
+
+.button{
+  margin: 15px;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  background: #222;
+  color: #fff;
+  position: absolute;
+  top: 20px;
+}
+
+.button:hover{
+  scale: 1.05;
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+
+.button:active{
+  scale: 0.98;
+}
+
+.header {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+p {
+  color: #fff;
+  margin: 5px;
 }
